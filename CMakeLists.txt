@@ -128,7 +128,7 @@ FEATURE_SUMMARY(WHAT ALL)
 
 file(GLOB CORE_SRC "toxcore/*.c")
 add_library(toxcore ${CORE_SRC})
-target_link_libraries(toxcore ${Sodium_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(toxcore ${Sodium_LIBRARIES} rt ${CMAKE_THREAD_LIBS_INIT})
 
 # compile libtoxav
 
@@ -206,7 +206,7 @@ if (BUILD_TESTS)
         endif()
 
         add_executable(${TEST_BIN_NAME} EXCLUDE_FROM_ALL ${TEST_SOURCES})
-        target_link_libraries(${TEST_BIN_NAME} ${Check_LIBRARIES} rt m ${TEST_LIBS})
+        target_link_libraries(${TEST_BIN_NAME} ${Check_LIBRARIES} m ${TEST_LIBS})
 
         add_test(NAME ${TEST_PRETTY_NAME} COMMAND ${TEST_BIN_NAME})
         add_dependencies(check ${TEST_BIN_NAME})
