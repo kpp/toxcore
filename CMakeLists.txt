@@ -133,7 +133,7 @@ target_link_libraries(toxcore ${Sodium_LIBRARIES} rt ${CMAKE_THREAD_LIBS_INIT})
 # compile libtoxav
 
 if (BUILD_AV)
-    include_directories(/usr/include/opus/)
+    include_directories(${Opus_INCLUDE_DIRS})
     file(GLOB AV_SRC "toxav/*.c")
     add_library(toxav ${AV_SRC})
     target_link_libraries(toxav toxcore ${Opus_LIBRARIES} ${VPX_LIBRARIES})
@@ -188,7 +188,7 @@ install(FILES
 # build unit tests
 
 if (BUILD_TESTS)
-    add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure)
+    add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure --parallel 2)
     enable_testing()
 
     include(CMakeParseArguments)
