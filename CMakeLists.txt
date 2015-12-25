@@ -30,8 +30,8 @@ set_package_properties(VPX PROPERTIES TYPE OPTIONAL
     DESCRIPTION "VP8 video codec development files"
     PURPOSE "Enables AV support"
 )
-find_package(NaCl REQUIRED)
-set_package_properties(NaCl PROPERTIES TYPE REQUIRED
+find_package(NaCl)
+set_package_properties(NaCl PROPERTIES TYPE OPTIONAL
     URL "http://nacl.cace-project.eu/"
     DESCRIPTION "High-speed software library for network communication"
 )
@@ -40,8 +40,8 @@ set_package_properties(Sodium PROPERTIES TYPE REQUIRED
     URL "https://download.libsodium.org/doc/"
     DESCRIPTION "Software library for encryption, decryption, signatures, password hashing and more"
 )
-find_package(Config REQUIRED)
-set_package_properties(Config PROPERTIES TYPE REQUIRED
+find_package(Config)
+set_package_properties(Config PROPERTIES TYPE OPTIONAL
     URL "http://www.hyperrealm.com/libconfig/"
     DESCRIPTION "Parsing/manipulation of structured config files"
 )
