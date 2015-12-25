@@ -1,0 +1,11 @@
+include(CheckLibraryExists)
+include(FindPackageHandleStandardArgs)
+
+find_path(LIBCONFIG_INCLUDE_DIRS NAMES libconfig.h)
+find_library(LIBCONFIG_LIBRARIES NAMES config)
+mark_as_advanced(LIBCONFIG_INCLUDE_DIRS LIBCONFIG_LIBRARIES)
+
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(Config
+    FOUND_VAR Config_FOUND
+    REQUIRED_VARS LIBCONFIG_LIBRARIES LIBCONFIG_INCLUDE_DIRS
+)

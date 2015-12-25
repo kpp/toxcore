@@ -1,0 +1,11 @@
+include(CheckLibraryExists)
+include(FindPackageHandleStandardArgs)
+
+find_path(LIBCHECK_INCLUDE_DIRS NAMES check.h)
+find_library(LIBCHECK_LIBRARIES NAMES check)
+mark_as_advanced(LIBCHECK_INCLUDE_DIRS LIBCHECK_LIBRARIES)
+
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(Check
+    FOUND_VAR Check_FOUND
+    REQUIRED_VARS LIBCHECK_LIBRARIES LIBCHECK_INCLUDE_DIRS
+)

@@ -1,0 +1,11 @@
+include(CheckLibraryExists)
+include(FindPackageHandleStandardArgs)
+
+find_path(LIBOPUS_INCLUDE_DIRS NAMES opus/opus.h)
+find_library(LIBOPUS_LIBRARIES NAMES opus)
+mark_as_advanced(LIBOPUS_INCLUDE_DIRS LIBOPUS_LIBRARIES)
+
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(Opus
+    FOUND_VAR Opus_FOUND
+    REQUIRED_VARS LIBOPUS_LIBRARIES LIBOPUS_INCLUDE_DIRS
+)
