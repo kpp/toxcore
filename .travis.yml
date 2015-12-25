@@ -10,6 +10,11 @@ env:
     - BUILD_SYSTEM=autotools
     - BUILD_SYSTEM=cmake
 
+before_install:
+    - sudo apt-get update -qq
+    #installing yasm, needed for compiling vpx
+    - sudo apt-get install yasm
+
 before_script:
   #installing libsodium, needed for Core
   - git clone git://github.com/jedisct1/libsodium.git > /dev/null
@@ -20,8 +25,6 @@ before_script:
   - make check -j3 > /dev/null
   - sudo make install >/dev/null
   - cd ..
-  #installing yasm, needed for compiling vpx
-  - sudo apt-get install yasm
   #installing libconfig, needed for DHT_bootstrap_daemon
   - wget http://www.hyperrealm.com/libconfig/libconfig-1.4.9.tar.gz > /dev/null
   - tar -xvzf libconfig-1.4.9.tar.gz > /dev/null
