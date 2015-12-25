@@ -21,7 +21,7 @@ before_script:
   - sudo make install >/dev/null
   - cd ..
   #installing yasm, needed for compiling vpx
-  - sudo apt-get install yasm > /dev/null
+  - sudo apt-get install yasm
   #installing libconfig, needed for DHT_bootstrap_daemon
   - wget http://www.hyperrealm.com/libconfig/libconfig-1.4.9.tar.gz > /dev/null
   - tar -xvzf libconfig-1.4.9.tar.gz > /dev/null
